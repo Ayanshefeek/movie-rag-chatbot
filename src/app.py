@@ -1,6 +1,8 @@
 import streamlit as st
 from search import RAGSearch
-
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="CineSearch AI",

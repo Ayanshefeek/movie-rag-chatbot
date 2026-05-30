@@ -1,7 +1,9 @@
 from pathlib import Path
 from typing import List, Any
 from langchain_community.document_loaders import CSVLoader
-
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
 def load_all_documents(data_dir: str) -> List[Any]:
     """
     Load ALL CSV files from the data directory.
