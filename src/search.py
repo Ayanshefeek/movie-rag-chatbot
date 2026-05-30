@@ -1,6 +1,7 @@
 
 import os
 from dotenv import load_dotenv
+from data_loader import load_all_documents
 from vectorstore import FaissVectorStore
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
@@ -35,7 +36,9 @@ class RAGSearch:
 
             from data_loader import load_all_documents
 
-            docs = load_all_documents("../data")
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            data_dir = os.path.join(base_dir, "data")
+            docs = load_all_documents(data_dir)
 
             self.vectorstore.build_from_documents(docs)
 
